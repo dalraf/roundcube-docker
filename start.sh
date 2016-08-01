@@ -30,4 +30,4 @@ fi
 sudo $DOCKER build -t thinred/roundcube ./roundcube
 
 # 2. Start it and attach rc-data volumes
-sudo $DOCKER run -p ${LISTEN}:${PORT}:80 --volumes-from roundcube-data -d --name roundcube thinred/roundcube
+sudo $DOCKER run --restart unless-stopped -p ${LISTEN}:${PORT}:80 --volumes-from roundcube-data -d --name roundcube thinred/roundcube
